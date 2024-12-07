@@ -1,0 +1,152 @@
+/* Full-screen dark theme background with animated gradient */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative; /* Needed for star container */
+  background: linear-gradient(45deg, #2e3b4e, #1a1a2e, #16213e);
+  background-size: 300% 300%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Animation for background gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Starry sky effect with twinkling stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out, move 20s linear infinite, reposition 10s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+/* Adjusted movement to follow the gradient direction */
+@keyframes move {
+  0% {
+    transform: translateX(-20%) translateY(-20%);
+  }
+  50% {
+    transform: translateX(20%) translateY(20%);
+  }
+  100% {
+    transform: translateX(-20%) translateY(-20%);
+  }
+}
+
+/* New animation for repositioning the stars */
+@keyframes reposition {
+  0% {
+    left: randomLeft();
+    top: randomTop();
+  }
+  100% {
+    left: randomLeft();
+    top: randomTop();
+  }
+}
+
+/* Container styles */
+.container {
+  text-align: center;
+  z-index: 1;
+}
+
+.content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.social-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.icon i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.facebook {
+  background-color: #1877F2;
+}
+
+.instagram {
+  background-color: #E4405F;
+}
+
+.x {
+  background-color: #000;
+}
+
+.youtube {
+  background-color: #FF0000;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  background-color: #555;
+}
