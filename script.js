@@ -1,3 +1,7 @@
+// Used for Removing FBCLID from Url
+if(/^\?fbclid=/.test(location.search))
+location.replace(location.href.replace(/\?fbclid.+/, ""));
+
 // Generate random stars in the background
 function generateStars(numStars) {
   const starsContainer = document.querySelector('.stars');
